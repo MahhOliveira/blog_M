@@ -1,0 +1,53 @@
+# A URL para a qual o site será criado
+base_url = "https://Mahh.in/"
+
+
+# Se deve criar um índice de pesquisa a ser usado posteriormente por uma biblioteca JavaScript
+build_search_index = falso
+
+tema = "hyde"
+# O título e a descrição do site; usado em feeds por padrão.
+title = "Celestiano"
+description = "Writeups relacionados à segurança da web, exploração binária e projetos de programação."
+
+# O idioma padrão; usado em rações.
+default_language = "pt"
+
+# Quando definido como "verdadeiro", um feed é gerado automaticamente.
+generate_feed = verdadeiro
+
+compile_sass = verdadeiro
+
+# Quando definido como "true", os arquivos HTML gerados são minimizados.
+minify_html = verdadeiro
+
+# Configuração da renderização Markdown
+[redução de preço]
+# Quando definido como "true", todos os blocos de código são realçados.
+highlight_code = verdadeiro
+
+# O tema a ser usado para realce de código.
+# Veja abaixo a lista de valores permitidos.
+highlight_theme = "base16-oceano-escuro"
+
+# Quando definido como "verdadeiro", os aliases de emoji são traduzidos para seus correspondentes
+# Emoji Unicode equivalente nos arquivos Markdown renderizados. (por exemplo: :smile: => 😄 )
+render_emoji = verdadeiro
+
+# Se os links externos devem ser abertos em uma nova guia
+# Se isso for verdade, um 'rel="noopener"' sempre será adicionado automaticamente por razões de segurança
+external_links_target_blank = verdadeiro
+
+
+# Se deve definir rel="noreferrer" para todos os links externos
+external_links_no_referrer = verdadeiro
+
+
+[extra]
+# Coloque todas as suas variáveis personalizadas aqui
+hyde_links = [
+    {url = "https://twitter.com/dev", name = "Twitter"},
+    {url = "https://hackerone.com/MahhOliveira", name = "HackerOne"},
+    {url = "https://app.hackthebox.com/profile/114435", nome = "HackTheBox"},
+    {url = "https://github.com/MahhOliveira", name = "Github"}
+]
