@@ -1,0 +1,71 @@
+<! DOCTYPE html>
+<html lang="pt">
+    <cabeça>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Habilite a capacidade de resposta em dispositivos móveis - >
+      <!-- viewport-fit=cover é suportar cantos arredondados do iPhone X e entalhe na paisagem - >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+
+      CSS <!-- -->
+      <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print">
+      <link rel="stylesheet" href="{{ get_url(path="poole.css", trailing_slash=false) }}">
+      <link rel="stylesheet" href="{{ get_url(path="hyde.css", trailing_slash=false) }}">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700| Abril+Fatface">
+
+ {% se config.generate_feed %}
+        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+      {% endif %}
+
+ {% bloco extra_head %}
+      {% endblock extra_head %}
+    </cabeça>
+
+    <body class="{{ config.extra.hyde_theme }} {% if config.extra.hyde_reverse %}layout-reverse{% endif %}">
+ {% bloquear barra lateral %}
+            <div class="barra lateral">
+                <div class="container {% if config.extra.hyde_sticky %}sidebar-sticky{% endif %}">
+                    <div class="sidebar-about">
+ {% bloco sidebar_about %}
+                            <a href="{{ config.base_url }}"><h1>{{ config.title }}</h1></a >
+                            {% if config.description %}
+                            <p class="lead">{{config.description}}</p >
+                            {% endif %}
+                        {% endblock sidebar_about %}
+                    </Div>
+
+                    <ul class="sidebar-nav">
+ {% bloco sidebar_nav %}
+ {% para link no config.extra.hyde_links %}
+                        <li class="sidebar-nav-item"><a href="{{link.url}}">{{link.name}}</a></li >
+                        {% endfor %}
+                        {% endblock sidebar_nav %}
+                    </Ul>
+                </Div>
+            </Div>
+ {% barra lateral do endblock %}
+
+        <div class="contêiner de conteúdo">
+ {% bloquear conteúdo %}
+                <div class="posts">
+ {% para página na seção.pages | reverter %}
+                      <div class="post">
+                        <h1 class="pós-título">
+                          <a href="{{ page.permalink }}">
+                            {{ page.title }}
+                          </um>
+                        </h1>
+
+                        <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span >
+                      </Div>
+                    {% endfor %}
+                </Div>
+            {% endblock content %}
+        </Div>
+
+    </corpo>
+
+</.html>
